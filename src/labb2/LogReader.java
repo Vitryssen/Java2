@@ -17,12 +17,13 @@ import java.util.List;
  */
 public class LogReader {
     private List<String> lines = new ArrayList<String>();
+    private List<String> orgLines = new ArrayList<String>();
     private String workingPath;
     public LogReader(String fileUrl){
         try
         {  
-            this.workingPath = System.getProperty("user.dir");
-            File file=new File(this.workingPath+"\\logs\\"+fileUrl+".log");    //creates a new file instance  
+            workingPath = System.getProperty("user.dir");
+            File file=new File(workingPath+"\\logs\\"+fileUrl+".log");    //creates a new file instance  
             FileReader fr=new FileReader(file);   //reads the file  
             BufferedReader br=new BufferedReader(fr);  //creates a buffering character input stream  
             String line; 
@@ -37,24 +38,29 @@ public class LogReader {
                 else{
                     username = line.substring(1, line.indexOf('>'));
                 }
-                this.lines.add(tag);
-                this.lines.add(username);
-                this.lines.add(text);
+                lines.add(username);
+                lines.add(tag);
+                lines.add(text);
+                orgLines.add(line);
             }
         }
         catch (FileNotFoundException ex) 
         {
-            System.out.println("Not found");
+            orgLines.add("Not found");
+            lines.add("Not found");
         } 
         catch (IOException ex) 
         {
             System.out.println(ex);
         }
     }
-    public void GetHistory(){
-        Iterator<String> test = this.lines.iterator();
+    public void getHistory(){
+        Iterator<String> test = lines.iterator();
         while(test.hasNext()){
             System.out.println(test.next());
         }
+    }
+    public List<String> getOrgHistory(){
+        return orgLines;
     }
 }

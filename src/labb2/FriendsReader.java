@@ -35,7 +35,7 @@ public class FriendsReader {
                     currentFriend.setNick(line.substring(1,line.indexOf('>')));
                     if(line.indexOf(']') != -1){
                         currentFriend.setNick(line.substring(1,line.indexOf('[')));
-                        currentFriend.setTag(line.substring(line.indexOf('[')+1,line.indexOf(']')));
+                        currentFriend.setTag(line.substring(line.indexOf('['),line.indexOf(']')+1));
                     }
                 }
                 line=br.readLine();
@@ -64,5 +64,8 @@ public class FriendsReader {
             System.out.println(friends.get(i).getIp());
             System.out.println(friends.get(i).getImage());
         }
+    }
+    public List<Friend> getFriendList(){
+        return friends;
     }
 }

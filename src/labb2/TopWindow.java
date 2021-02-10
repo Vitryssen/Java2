@@ -31,6 +31,8 @@ public class TopWindow extends ComponentAdapter{
     public JButton fileButton = new JButton("File");
     public GridBagConstraints c = new GridBagConstraints();
     private JPanel exitPanel = new JPanel();
+    private JCheckBox privateButton = new JCheckBox("Private chat");
+    private JCheckBox publicButton = new JCheckBox("Public chat");
     public TopWindow(){
         Border blackline;
         blackline = BorderFactory.createLineBorder(Color.black);
@@ -57,32 +59,17 @@ public class TopWindow extends ComponentAdapter{
         //Change show and exitPanel to place and resize
         //correctly with the file and show buttons
         showPanel.setBorder(blackline);
-        showPanel.setBounds(111,45,110,70);
         showPanel.setVisible(false);
 
         exitPanel.setBorder(blackline);
-        exitPanel.setBounds(6,45,100,40);
         exitPanel.add(exitButton, BorderLayout.WEST);
         exitButton.setPreferredSize(new Dimension(90,30));
         exitPanel.setVisible(false);
 
-        JCheckBox privateButton = new JCheckBox("Private chat");
-        JCheckBox publicButton = new JCheckBox("Public chat");
-
         // add to a container
         showPanel.add(privateButton, BorderLayout.NORTH);
         showPanel.add(publicButton, BorderLayout.SOUTH);
-        privateButton.setPreferredSize(new Dimension(100,20));
-        publicButton.setPreferredSize(new Dimension(100,21));
-
-        privateButton.addActionListener((ActionEvent e) -> {
-            if(publicButton.isSelected())
-                publicButton.setSelected(false);
-        });
-        publicButton.addActionListener((ActionEvent e) -> {
-            if(privateButton.isSelected())
-                privateButton.setSelected(false);
-        });
+        
         fileButton.addActionListener((ActionEvent e) -> {
             if(exitPanel.isVisible())
                 exitPanel.setVisible(false);
@@ -104,7 +91,12 @@ public class TopWindow extends ComponentAdapter{
             public void componentResized(ComponentEvent componentEvent) {
                 c.insets = new Insets(0,0,0, (int) (0.70*top.getWidth()));  //top padding
                 top.add(showButton, c);
-                System.out.println(top.getComponentCount());
+                exitPanel.setBounds(fileButton.getLocation().x, fileButton.getLocation().y+fileButton.getHeight(), fileButton.getWidth(), 50);
+                showPanel.setBounds(showButton.getLocation().x, showButton.getLocation().y+showButton.getHeight(), showButton.getWidth(), 50);
+                privateButton.setPreferredSize(new Dimension(showPanel.getWidth()-5,15));
+                publicButton.setPreferredSize(new Dimension(showPanel.getWidth()-5,15));
+                exitPanel.repaint();
+                showPanel.repaint();
             }
         });
     }
@@ -116,5 +108,11 @@ public class TopWindow extends ComponentAdapter{
     }
     public JPanel getExitPanel(){
         return exitPanel;
+    }
+    public JCheckBox getPublicButton(){
+        return publicButton;
+    }
+    public JCheckBox getPrivateButton(){
+        return privateButton;
     }
 }

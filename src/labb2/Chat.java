@@ -12,5 +12,5 @@ package labb2;
 public class Chat{  
     public static void main(String[] args) {  
        new MainWindow();
-    }  
+    }
 } 
