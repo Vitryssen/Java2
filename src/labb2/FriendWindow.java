@@ -17,8 +17,10 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 /**
- *
- * @author André
+ * @author André Nordlund
+ * @date 2021-02-10
+ * @course name Java 2
+ * @Lab number 1
  */
 public class FriendWindow extends JPanel {
     private FriendsReader friendList = new FriendsReader();
@@ -36,13 +38,11 @@ public class FriendWindow extends JPanel {
         
         friends.add(friendText);
         friends.add(namePanel);
-        friends.setPreferredSize(new Dimension(longestName()+10, 140)); //width determined by the longest name
+        friends.setPreferredSize(new Dimension(longestName()+10, 140));
     }
     public int longestName(){
-        //--------------------------Chat------------------------------------
         int previous = 0;
         for(int i = 0; i < friendList.getFriendList().size(); i++){
-            //System.out.println(friendList.getFriendList().get(i).getNick());
             String text = friendList.getFriendList().get(i).getNick();
             AffineTransform affinetransform = new AffineTransform();     
             FontRenderContext frc = new FontRenderContext(affinetransform,true,true);     

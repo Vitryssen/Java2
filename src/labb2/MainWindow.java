@@ -19,13 +19,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- *
- * @author André
+ * @author André Nordlund
+ * @date 2021-02-10
+ * @course name Java 2
+ * @Lab number 1
  */
 public class MainWindow {
     private JFrame f;  
     LogReader publicChat = new LogReader("Eurakarte");
-    LogReader privateChat;
     TopWindow top = new TopWindow();
     ChatWindow chat = new ChatWindow();
     FriendWindow friends = new FriendWindow();
@@ -38,6 +39,7 @@ public class MainWindow {
         JCheckBox publicButton = top.getPublicButton();
         JCheckBox privateButton = top.getPrivateButton();
         publicButton.addActionListener((ActionEvent e) -> {
+            chat.getChatText().setText(""); 
             if(privateButton.isSelected()){
                 privateButton.setSelected(false);
             }
@@ -46,9 +48,6 @@ public class MainWindow {
                     chat.getChatText().append(publicChat.getOrgHistory().get(i));
                     chat.getChatText().append("\n");
                 }
-            }
-            else{
-               chat.getChatText().setText(""); 
             }
             privateMode = false;
             f.repaint();
@@ -84,7 +83,6 @@ public class MainWindow {
                 chat.getWindow().setPreferredSize(new Dimension(f.getWidth()-friends.longestName()-50, f.getHeight()-80));
                 friends.getWindow().setPreferredSize(new Dimension(friends.longestName()+10,f.getHeight()-80));
                 f.repaint();
-                //System.out.println(f.getHeight() + " "+f.getWidth()+ " "+chat.getWindow().getWidth());
             }
         });
     }
@@ -96,8 +94,7 @@ public class MainWindow {
             nameLabel.addMouseListener(new MouseAdapter() { 
                 public void mousePressed(MouseEvent me) { 
                     if(privateMode == true){
-                        //System.out.println(me.getComponent().getName());
-                        LogReader privateChat = new LogReader(me.getComponent().getName());  
+                        LogReader privateChat = new LogReader(me.getComponent().getName());  //Dont read file every click
                         List<String> history = privateChat.getOrgHistory();
                         chat.getChatText().setText("");
                         for(int i = 0; i < history.size(); i++){

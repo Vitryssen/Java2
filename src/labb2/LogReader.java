@@ -12,8 +12,10 @@ import java.util.List;
 
 
 /**
- *
- * @author André
+ * @author André Nordlund
+ * @date 2021-02-10
+ * @course name Java 2
+ * @Lab number 1
  */
 public class LogReader {
     private List<String> lines = new ArrayList<String>();
