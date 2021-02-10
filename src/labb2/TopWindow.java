@@ -21,8 +21,10 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 /**
- *
- * @author André
+ * @author André Nordlund
+ * @date 2021-02-10
+ * @course name Java 2
+ * @Lab number 1
  */
 public class TopWindow extends ComponentAdapter{
     private JPanel showPanel = new JPanel();
@@ -45,19 +47,16 @@ public class TopWindow extends ComponentAdapter{
         top.add(fileButton , c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
-        c.ipady = 0;       //reset to default
-        c.weighty = 1.0;   //request any extra vertical space
-        c.anchor = GridBagConstraints.PAGE_END; //bottom of space
-        c.insets = new Insets(0,0,0,300);  //top padding
-        c.gridx = 1;       //aligned with button 2
-        c.gridy = 0;       //third row
-        //showButton.addActionListener(actionPerformed());
+        c.ipady = 0;       
+        c.weighty = 1.0;   
+        c.anchor = GridBagConstraints.PAGE_END; 
+        c.insets = new Insets(0,0,0,300);  
+        c.gridx = 1;       
+        c.gridy = 0;       
         top.add(showButton, c);
 
         JButton exitButton = new JButton("Exit");
 
-        //Change show and exitPanel to place and resize
-        //correctly with the file and show buttons
         showPanel.setBorder(blackline);
         showPanel.setVisible(false);
 
@@ -66,7 +65,6 @@ public class TopWindow extends ComponentAdapter{
         exitButton.setPreferredSize(new Dimension(90,30));
         exitPanel.setVisible(false);
 
-        // add to a container
         showPanel.add(privateButton, BorderLayout.NORTH);
         showPanel.add(publicButton, BorderLayout.SOUTH);
         

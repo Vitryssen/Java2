@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/André/Desktop/git/labb2/src/labb2/FriendsReader.java</file>
             <file>file:/C:/Users/André/Desktop/git/labb2/src/labb2/Chat.java</file>
             <file>file:/C:/Users/André/Desktop/git/labb2/src/labb2/FriendWindow.java</file>
@@ -10,6 +11,17 @@
             <file>file:/C:/Users/André/Desktop/git/labb2/src/labb2/ChatWindow.java</file>
             <file>file:/C:/Users/André/Desktop/git/labb2/src/labb2/TopWindow.java</file>
             <file>file:/C:/Users/André/Desktop/git/labb2/src/labb2/LogReader.java</file>
+=======
+            <file>file:/C:/Users/André/Desktop/Git/Java%20labb%202/src/labb2/Friend.java</file>
+            <file>file:/C:/Users/André/Desktop/Git/Java%20labb%202/src/labb2/Sortbynick.java</file>
+            <file>file:/C:/Users/André/Desktop/Git/Java%20labb%202/src/labb2/MainWindow.java</file>
+            <file>file:/C:/Users/André/Desktop/Git/Java%20labb%202/src/labb2/ChatWindow.java</file>
+            <file>file:/C:/Users/André/Desktop/Git/Java%20labb%202/src/labb2/TopWindow.java</file>
+            <file>file:/C:/Users/André/Desktop/Git/Java%20labb%202/src/labb2/LogReader.java</file>
+            <file>file:/C:/Users/André/Desktop/Git/Java%20labb%202/src/labb2/FriendsReader.java</file>
+            <file>file:/C:/Users/André/Desktop/Git/Java%20labb%202/src/labb2/Chat.java</file>
+            <file>file:/C:/Users/André/Desktop/Git/Java%20labb%202/src/labb2/FriendWindow.java</file>
+>>>>>>> 954bab0a70ba466225eb50cd7346872c71f70885
         </group>
     </open-files>
 </project-private>

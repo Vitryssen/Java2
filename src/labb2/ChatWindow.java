@@ -12,17 +12,20 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
 /**
- *
- * @author André
+ * @author André Nordlund
+ * @date 2021-02-10
+ * @course name Java 2
+ * @Lab number 1
  */
 public class ChatWindow extends JPanel{
     private JPanel chat = new JPanel();
     private JTextArea chatText = new JTextArea("");
-    private JLabel chatLabel = new JLabel("Chat with");
+    private JLabel chatLabel = new JLabel("Chat");
     public ChatWindow(){
         Border blackline = BorderFactory.createLineBorder(Color.black);
         
@@ -32,11 +35,14 @@ public class ChatWindow extends JPanel{
         chatText.setWrapStyleWord(true);
         chatText.setBorder(blackline);
         chatText.setEditable(false);
-
+        
+        JScrollPane scrollPane = new JScrollPane(chatText);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        
         chatLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         chat.add(chatLabel);
-        chat.add(chatText);
+        chat.add(scrollPane);
         chat.setPreferredSize(new Dimension(310, 140));
     }
     public JPanel getWindow(){

@@ -8,8 +8,10 @@ package labb2;
 import java.util.Comparator;
 
 /**
- *
- * @author André
+ * @author André Nordlund
+ * @date 2021-02-10
+ * @course name Java 2
+ * @Lab number 1
  */
 public class Sortbynick implements Comparator<Friend>{
     public int compare(Friend a, Friend b){
