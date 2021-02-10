@@ -20,7 +20,7 @@ import javax.swing.border.Border;
  * @author André Nordlund
  * @date 2021-02-10
  * @course name Java 2
- * @Lab number 1
+ * @Lab number 2
  */
 public class ChatWindow extends JPanel{
     private JPanel chat = new JPanel();

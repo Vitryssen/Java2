@@ -20,7 +20,7 @@ import javax.swing.border.Border;
  * @author André Nordlund
  * @date 2021-02-10
  * @course name Java 2
- * @Lab number 1
+ * @Lab number 2
  */
 public class FriendWindow extends JPanel {
     private FriendsReader friendList = new FriendsReader();
@@ -40,7 +40,7 @@ public class FriendWindow extends JPanel {
         friends.add(namePanel);
         friends.setPreferredSize(new Dimension(longestName()+10, 140));
     }
-    public int longestName(){
+    public int longestName(){ //Get longest name from friendlist
         int previous = 0;
         for(int i = 0; i < friendList.getFriendList().size(); i++){
             String text = friendList.getFriendList().get(i).getNick();

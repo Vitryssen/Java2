@@ -7,21 +7,23 @@ package labb2;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
  * @author André Nordlund
  * @date 2021-02-10
  * @course name Java 2
- * @Lab number 1
+ * @Lab number 2
  */
 public class LogReader {
     private List<String> lines = new ArrayList<String>();
     private List<String> orgLines = new ArrayList<String>();
     private String workingPath;
-    public LogReader(String fileUrl){
+    private Map<String, List<String>> userChats = new HashMap<String, List<String>>(); 
+    public void readFile(String fileUrl){
         try
         {  
             workingPath = System.getProperty("user.dir");
@@ -40,29 +42,35 @@ public class LogReader {
                 else{
                     username = line.substring(1, line.indexOf('>'));
                 }
-                lines.add(username);
+                /*lines.add(username);
                 lines.add(tag);
-                lines.add(text);
+                lines.add(text); //Unused separation of message information
+                */
                 orgLines.add(line);
             }
+            userChats.put(fileUrl, orgLines); //Saves the chat to the given username
+            orgLines = new ArrayList<String>(); //And empties temporary list
         }
         catch (FileNotFoundException ex) 
         {
             orgLines.add("Not found");
-            lines.add("Not found");
+            userChats.put(fileUrl, orgLines);
+            orgLines = new ArrayList<String>();
         } 
         catch (IOException ex) 
         {
             System.out.println(ex);
         }
     }
-    public void getHistory(){
-        Iterator<String> test = lines.iterator();
-        while(test.hasNext()){
-            System.out.println(test.next());
-        }
-    }
     public List<String> getOrgHistory(){
         return orgLines;
+    }
+    public boolean chatExists(String nickname){
+        if(userChats.containsKey(nickname)) //If the map contains given nick return true
+            return true;
+        return false;
+    }
+    public List<String> getUserChat(String nickname){
+        return userChats.get(nickname); //Returns chat to given nickname
     }
 }

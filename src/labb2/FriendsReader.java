@@ -18,7 +18,7 @@ import java.util.List;
  * @author André Nordlund
  * @date 2021-02-10
  * @course name Java 2
- * @Lab number 1
+ * @Lab number 2
  */
 public class FriendsReader {
     private List<Friend> friends = new ArrayList<Friend>();

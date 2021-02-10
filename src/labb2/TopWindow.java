@@ -24,7 +24,7 @@ import javax.swing.border.Border;
  * @author André Nordlund
  * @date 2021-02-10
  * @course name Java 2
- * @Lab number 1
+ * @Lab number 2
  */
 public class TopWindow extends ComponentAdapter{
     private JPanel showPanel = new JPanel();
@@ -87,7 +87,7 @@ public class TopWindow extends ComponentAdapter{
         top.addComponentListener(new ComponentAdapter() {
         @Override
             public void componentResized(ComponentEvent componentEvent) {
-                c.insets = new Insets(0,0,0, (int) (0.70*top.getWidth()));  //top padding
+                c.insets = new Insets(0,0,0, (int) (0.70*top.getWidth()));  //Resize event for top bar
                 top.add(showButton, c);
                 exitPanel.setBounds(fileButton.getLocation().x, fileButton.getLocation().y+fileButton.getHeight(), fileButton.getWidth(), 50);
                 showPanel.setBounds(showButton.getLocation().x, showButton.getLocation().y+showButton.getHeight(), showButton.getWidth(), 50);
